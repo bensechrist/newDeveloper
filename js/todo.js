@@ -9,7 +9,7 @@ $(function() {
   function getListElement(elementText) {
     // Remove all HTML tags
     var cleanedText = elementText.replace(/<\/?[^>]+(>|$)/g, ""); 
-    return "<li><span>[X]</span> " + cleanedText + "</li>";
+    return "<div class='alert'>" + cleanedText + " <span class='close'>&times;</span></div>";
   };
 
   /**
@@ -32,22 +32,22 @@ $(function() {
   // Fire off the AJAX GET for the xml data
   $.get('items.xml', handleXmlData, 'xml');
 
+  // Add submit handler to the form to display the todo item
+  $("form").submit(function() {
+    var $item = $("#newItem");
+    if ($item.val() != "") {
+      $("#todoList").append( getListElement($item.val()) );
+      $item.val('');
+    }
+    return false;  // Prevent the browser from submitting the form
+  });
+
   // Bind event handler for clicking the span [X] elements
-  $("#todoList").on('click', 'li span', function() {
+  $("#todoList").on('click', 'span.close', function() {
     // Slide up the element. When it's done animating, remove it
     $(this).parent().slideUp().promise().done(function() {
       $(this).remove();
     });
-  });
-
-  // Add submit handler to the form to display the todo item
-  $("form").submit(function() {
-    var $item = $("#newItem");
-    if ($item.val() == "")
-      return;
-    $("#todoList").append( getListElement($item.val()) );
-    $item.val('');
-    return false;  // Prevent the browser from submitting the form
   });
   
 });
