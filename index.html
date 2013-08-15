@@ -11,13 +11,24 @@
     </div>
   </nav>
   
-  <ul id="todoList"></ul>
-  <form method="post" class="form-inline">
-    <div class="form-group">
-      <input class="form-control" type="text" placeholder="New Item" name="newItem" id="newItem" />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <p>This is a to do application! Simply type in an item into the list, submit the form, and it'll be added!</p>
+        <p>That's all there is to it!</p>
+      </div>
+      <div class="col-md-8">
+        <ul id="todoList"></ul>
+        <form method="post" class="form-inline">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="New Item" name="newItem" id="newItem" />
+          </div>
+          <input class="btn btn-primary" type="submit" value="Add Item" />
+        </form>
+      </div>
     </div>
-    <input class="btn btn-primary" type="submit" value="Add Item" />
-  </form>
+  </div>
+  
   <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/todo.js"></script>
