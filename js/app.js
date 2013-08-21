@@ -1,5 +1,12 @@
 
-define([
+/**
+ * This module defines all of the dependencies that are needed for this app to run.
+ * Dependencies include all necessary views, models, and services.  Each of these
+ * dependencies may have their own dependencies.  
+ *
+ * Once everything is loaded, the callback will be called, providing each dependency.
+ */
+define([ 
   'jquery',
   'underscore',
   'backbone',

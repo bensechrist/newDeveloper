@@ -1,4 +1,9 @@
-
+/**
+ * A module that defines a view that can be thought of as the "list" for the todo items.
+ * The view holds the collection and binds to various events on the collection. It adds,
+ * removes, or resets the list visible on the DOM based on these events from the 
+ * collection.
+ */
 define([
   'jquery',
   'backbone',
