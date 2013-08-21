@@ -25,7 +25,16 @@ define([
      * collection.
      */
     handleFormSubmit: function() {
-      // Need to handle the form submit and ensure the page doesn't get refreshed
+      var val = this.$input.val();
+      if (val != "") {
+        var item = new TodoItem({
+          description: val,
+          id: this.collection.nextId()
+        });
+        this.collection.add(item);
+      }
+      this.$input.val('');
+      return false;
     }
     
   });

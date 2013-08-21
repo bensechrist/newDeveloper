@@ -12,10 +12,11 @@ define([
   'backbone',
   'views/TodoListView',
   'views/AddItemFormView',
+  'views/StatisticsView',
   'models/TodoCollection',
   'models/TodoItem',
   'services/RemoteService'
-], function($, _, Backbone, ListView, AddForm, TodoCollection, TodoItem, RemoteService) {
+], function($, _, Backbone, ListView, AddForm, StatisticsView, TodoCollection, TodoItem, RemoteService) {
 
   var fetchItems = function() {
     RemoteService.fetchItems(function(items) {
