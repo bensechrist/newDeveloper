@@ -21,9 +21,9 @@ define([
      */
     initialize: function() {
       this.collection = todoCollection;
-      this.collection.bind("reset", this.redraw, this);  // When the collection resets/empties
-      this.collection.bind("remove", this.remove, this); // When an element is removed
-      this.collection.bind("add", this.addItem, this);   // When an element is added
+      this.listenTo(this.collection, "reset", this.redraw);  // When the collection resets/empties
+      this.listenTo(this.collection, "remove", this.remove); // When an element is removed
+      this.listenTo(this.collection, "add", this.addItem);   // When an element is added
       this.redraw();
     },
   

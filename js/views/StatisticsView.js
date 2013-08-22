@@ -12,8 +12,8 @@ define([
     initialize: function() {
       this.collection = todoCollection;
       this.template = _.template( template );
-      this.collection.bind("add", this.render, this);
-      this.collection.bind("remove", this.render, this);
+      this.listenTo(this.collection, "add", this.render);
+      this.listenTo(this.collection, "remove", this.render);
     },
     render: function() {
       var data = { numItems: this.collection.models.length };

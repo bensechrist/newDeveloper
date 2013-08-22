@@ -26,8 +26,8 @@ define([
      */
     initialize: function() {
       this.template = _.template( template );
-      this.model.bind("change", this.render, this);
-      this.model.bind("destroy", function() { this.close(true); }, this);  // Remove the view when model is destroyed
+      this.listenTo(this.model, "change", this.render);
+      this.listenTo(this.model, "destory", function() { this.close(true); });  // Remove the view when model is destroyed
     },
   
     /**
